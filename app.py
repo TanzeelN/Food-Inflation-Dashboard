@@ -151,19 +151,25 @@ app.layout = dbc.Container(
                         [
                             #Line Graph at the top half
                             dbc.Row(
-                                dcc.Graph(id = "continent-line-graph"),
+                                dcc.Graph(id = "continent-line-graph",
+                                          config={
+                                              "displayModeBar":False}, ),
                             ),
                             #Second half of the dashboard
                             dbc.Row(
                                 [
                                     #Time Series Graph
                                     dbc.Col(
-                                        dcc.Graph(id = "time-series-map"),
-                                        width = 8
+                                        dcc.Graph(id = "time-series-map",
+                                                  config={
+                                                      "displayModeBar":False}),
+                                        width = 6
                                     ),
                                     dbc.Col(
-                                        dcc.Graph(id = "bar-chart-countries"),
-                                        width = 4
+                                        dcc.Graph(id = "bar-chart-countries",
+                                                  config={
+                                                      "displayModeBar":False}),
+                                        width = 6
                                     )
                                 ],
                                 className="g-0"
@@ -179,7 +185,7 @@ app.layout = dbc.Container(
         {
             "margin": 0,  # remove row margins
             "padding": 0,  # remove row padding
-            "width": "100%"  # ensure row spans entire container width
+            "width": "100%"# ensure row spans entire container width
         },
         fluid=True
     )

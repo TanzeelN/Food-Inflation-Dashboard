@@ -24,7 +24,19 @@ def continent_Line_Graph(Continent, Year_Range, data):
         average_Continents_Filtered,
         x = "YEAR",
         y = "CPI_PERC",
-        color = "CONTINENT"
+        color = "CONTINENT",
+        title = "Average Food Prices Inflation By Continent",
+        labels = {
+            "YEAR": "Year",
+            "CPI_PERC": "Inflation (%)",
+            "CONTINENT": "Continents"}
+    )
+    
+    Line_Graph.update_layout(
+        margin = {"b":0,
+                  "l": 0,
+                  "r": 0,
+                  "t": 40}
     )
     
     return Line_Graph
@@ -46,12 +58,24 @@ def continent_time_series(Continent, Year_Range, data):
         locations = "REF_AREA",
         locationmode = "ISO-3",
         animation_frame = "YEAR",
-        color="CPI_PERC"
+        color = "CPI_PERC",
+        labels={
+            "CPI_PERC": "Inflation (%)",
+            "YEAR": "Year"},
+        range_color=(0,50),
+        title = "Inflation Growth During "+str(start_Year)+"-"+str(end_Year)+" Within "+Continent
     )
     
     Time_Series_Map.update_geos(
         scope = Continent.lower(),
         projection_type = "natural earth"
+    )
+    
+    Time_Series_Map.update_layout(
+        margin = {"b":0,
+                  "l": 0,
+                  "r": 0,
+                  "t": 35}
     )
         
     
@@ -84,7 +108,18 @@ def countries_Bar_Chart(Continent, Year_Range, data):
     Countries_Bar_Chart = px.bar(
         Countries_Top_N_Melted,
         x = "REF_AREA_LABEL",
-        y = "CPI_PERC"
+        y = "CPI_PERC",
+        labels = {
+            "CPI_PERC": "Inflation (%)",
+            "REF_AREA_LABEL": "Country"},
+        title = "Top 10 Countries Driving Inflation Growth Within "+Continent
+    )
+    
+    Countries_Bar_Chart.update_layout(
+        margin = {"b":0,
+                  "l": 0,
+                  "r": 0,
+                  "t": 40}
     )
     
     return Countries_Bar_Chart
