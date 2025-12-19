@@ -1,0 +1,4 @@
+/* Ensure all SVGs using currentColor inherit the Bootstrap text color */
+#icon-color {
+    color: var(--bs-body-color);
+}

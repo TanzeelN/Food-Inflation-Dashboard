@@ -1,0 +1,26 @@
+/* Track */
+.rc-slider-track {
+    background-color: var(--bs-primary);
+}
+
+/* Rail (unselected) */
+.rc-slider-rail {
+    background-color: var(--bs-secondary-bg);
+}
+
+/* Handles */
+.rc-slider-handle {
+    border: 2px solid var(--bs-primary);
+    background-color: var(--bs-body-bg);
+}
+
+/* Handle hover */
+.rc-slider-handle:hover {
+    border-color: var(--bs-primary);
+}
+
+/* Tooltip */
+.rc-slider-tooltip-inner {
+    background-color: var(--bs-primary);
+    color: white;
+}
