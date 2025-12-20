@@ -170,12 +170,15 @@ app.layout = dbc.Container(
                                                   config={
                                                       "displayModeBar":False}),
                                         width = 6
-                                    )
+                                    ),
+                                    
                                 ],
                                 className="g-0"
                             ),
                         ],
-                        width = 9
+                        width = 9,
+                        
+                        
                     )
                 ]
             )

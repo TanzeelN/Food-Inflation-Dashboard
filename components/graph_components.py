@@ -1,5 +1,5 @@
 import pandas as pd
-import plotly.express as px
+import plotly.express as px, html
 
 
 def continent_Line_Graph(Continent, Year_Range, data):
@@ -25,7 +25,6 @@ def continent_Line_Graph(Continent, Year_Range, data):
         x = "YEAR",
         y = "CPI_PERC",
         color = "CONTINENT",
-        title = "Average Food Prices Inflation By Continent",
         labels = {
             "YEAR": "Year",
             "CPI_PERC": "Inflation (%)",
@@ -36,7 +35,16 @@ def continent_Line_Graph(Continent, Year_Range, data):
         margin = {"b":0,
                   "l": 0,
                   "r": 0,
-                  "t": 40}
+                  "t": 40},
+        title = {"text":"Average Food Prices Inflation By Continent",
+                 "font": {
+                     "size": 20,
+                     "weight": "bold"
+                 },
+                 "xanchor": "center",
+                 "x": 0.5
+                }
+
     )
     
     return Line_Graph
@@ -63,7 +71,6 @@ def continent_time_series(Continent, Year_Range, data):
             "CPI_PERC": "Inflation (%)",
             "YEAR": "Year"},
         range_color=(0,50),
-        title = "Inflation Growth During "+str(start_Year)+"-"+str(end_Year)+" Within "+Continent
     )
     
     Time_Series_Map.update_geos(
@@ -75,7 +82,16 @@ def continent_time_series(Continent, Year_Range, data):
         margin = {"b":0,
                   "l": 0,
                   "r": 0,
-                  "t": 35}
+                  "t": 35},
+        title = {
+            "text": "Inflation Growth During "+str(start_Year)+"-"+str(end_Year)+" Within "+Continent,
+            "x": 0.5,
+            "xanchor": "center",
+            "font": {
+                "size": 14,
+                "weight": "bold"
+            }
+        }
     )
         
     
@@ -111,15 +127,23 @@ def countries_Bar_Chart(Continent, Year_Range, data):
         y = "CPI_PERC",
         labels = {
             "CPI_PERC": "Inflation (%)",
-            "REF_AREA_LABEL": "Country"},
-        title = "Top 10 Countries Driving Inflation Growth Within "+Continent
+            "REF_AREA_LABEL": "Country"}
     )
     
     Countries_Bar_Chart.update_layout(
         margin = {"b":0,
                   "l": 0,
                   "r": 0,
-                  "t": 40}
+                  "t": 40},
+        title = {
+            "text": "Top 10 Countries Driving Inflation Growth Within "+Continent,
+            "x": 0.5,
+            "xanchor": "center",
+            "font": {
+                "size": 14,
+                "weight": "bold"
+            }
+        }
     )
     
     return Countries_Bar_Chart
